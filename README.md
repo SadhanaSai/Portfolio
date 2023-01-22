@@ -1,4 +1,7 @@
 ## Sadhana Sainarayanan's Portfolio
+<p>
+  <h4 align="center"> Austin, Texas </h4>
+</p>
 
 ### About Me
 
@@ -16,19 +19,35 @@ I am excited to continue learning and growing in these dynamic and rapidly-evolv
 ### Skills
 #### Languages
 Python 
+<br />
 R
 
 #### Software and Tools
 Tableau
+<br />
 PowerBI
+<br />
 MySQL Workbench
+<br />
 SAP Data Intelligence
+<br />
+
+### Projects
+
+[**Portfolio**](https://github.com/SadhanaSai/Sadhana_Portfolio) <br />A static website/portfolio to showcase recent projects.
+<br />
+
+
 
 
 ### Contact
-Linkedin : https://www.linkedin.com/in/sadhana-sainarayanan 
+<a href="https://www.linkedin.com/in/sadhana-sainarayanan">LinkedIn</a>
 
-Blog :  https://medium.com/@sadhanasainarayanan 
+<a href="https://medium.com/@sadhanasainarayanan ">Blog</a>
 
-Email :  sadhanasainarayanan@gmail.com 
+<a href="mailto:sadhanasainarayanan@gmail.com">Email</a>
+
+
+
+
 
