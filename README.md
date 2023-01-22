@@ -26,7 +26,9 @@ SAP Data Intelligence
 
 
 ### Contact
-Linkedin : ( https://www.linkedin.com/in/sadhana-sainarayanan ) 
-Blog : ( https://medium.com/@sadhanasainarayanan )
-Email : ( sadhanasainarayanan@gmail.com )
+Linkedin : https://www.linkedin.com/in/sadhana-sainarayanan 
+
+Blog :  https://medium.com/@sadhanasainarayanan 
+
+Email :  sadhanasainarayanan@gmail.com 
 
