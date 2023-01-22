@@ -1,6 +1,6 @@
-## Sadhana Sainarayanan's Portfolio
+## Sadhana Sainarayanan
 <p>
-  <h4 align="center"> Austin, Texas </h4>
+  <h4> Analyst - Austin, Texas </h4>
 </p>
 
 ### About Me
