@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Sadhana Sainarayanan",
-  "url": "https://sadhanasainarayanan.vercel.app",
-  "jobTitle": "Cloud Platform Security Analyst",
-  "alumniOf": "Carnegie Mellon University",
-  "sameAs": [
-    "https://linkedin.com/in/sadhana-sainarayanan",
-    "https://github.com/SadhanaSai"
-  ]
-}
-</script> 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sadhana Sainarayanan — Cloud Security & Platform Engineering</title>
+  <meta name="description" content="Sadhana Sainarayanan — Cloud Platform Security Analyst, AI Security Researcher, DEF CON 34 Cloud Village speaker. Carnegie Mellon University graduate based in Austin, TX." />
+  <meta name="author" content="Sadhana Sainarayanan" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sadhana Sainarayanan",
+    "url": "https://sadhanasainarayanan.vercel.app",
+    "jobTitle": "Cloud Platform Security Analyst",
+    "alumniOf": "Carnegie Mellon University",
+    "sameAs": [
+      "https://linkedin.com/in/sadhana-sainarayanan",
+      "https://github.com/SadhanaSai"
+    ]
+  }
+  </script>
   <link rel="icon" type="image/jpeg" href="logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +54,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 101;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -90,6 +92,7 @@
     }
 
     .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.active { color: var(--cyan); }
 
     /* HERO */
     .hero {
@@ -99,6 +102,8 @@
       justify-content: center;
       padding: 120px 48px 80px;
       max-width: 900px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-eyebrow {
@@ -202,7 +207,66 @@
       padding: 96px 48px;
       max-width: 960px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer { position: relative; z-index: 1; }
+
+    /* SCROLL FADE IN */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CURSOR SPOTLIGHT */
+    .spotlight {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(0,212,255,0.055) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: left 0.12s ease, top 0.12s ease;
+    }
+
+    /* COPY EMAIL BUTTON */
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+      margin-left: 8px;
+      letter-spacing: 0.04em;
+    }
+    .copy-btn:hover { color: var(--cyan); border-color: var(--cyan); }
+    .copy-btn.copied { color: #4ade80; border-color: #4ade80; }
+
+    .stat-value[data-target] { transition: none; }
 
     .section-label {
       font-family: 'JetBrains Mono', monospace;
@@ -223,15 +287,6 @@
       color: var(--white);
       margin-bottom: 48px;
       line-height: 1.1;
-    }
-
-    /* DIVIDER */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      max-width: 960px;
-      margin: 0 auto;
     }
 
     /* ABOUT */
@@ -341,19 +396,14 @@
       gap: 16px;
       transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
       text-decoration: none;
+      position: relative;
+      overflow: hidden;
     }
 
     .project-card:hover {
       border-color: rgba(0, 212, 255, 0.4);
       box-shadow: 0 0 32px var(--cyan-dim);
       transform: translateY(-2px);
-    }
-
-    .project-card.featured {
-      grid-column: 1 / -1;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 40px;
     }
 
     .project-badge {
@@ -405,8 +455,6 @@
 
     .project-github:hover { color: var(--cyan); }
     .project-github::before { content: '↗ '; }
-
-    .project-featured-content { flex: 1; display: flex; flex-direction: column; gap: 16px; }
 
     /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; gap: 0; }
@@ -560,6 +608,7 @@
       justify-content: center;
       flex-shrink: 0;
       font-size: 16px;
+      color: var(--muted);
     }
 
     /* FOOTER */
@@ -588,7 +637,6 @@
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .about-text { grid-column: 1; }
       .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { flex-direction: column; gap: 20px; }
       .exp-item { grid-template-columns: 1fr; gap: 12px; }
       .edu-grid { grid-template-columns: 1fr; }
       .contact-inner { padding: 36px 24px; }
@@ -607,6 +655,7 @@
     <a class="nav-logo" href="#top">Sadhana Sainarayanan<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
@@ -614,8 +663,12 @@
     </ul>
   </nav>
 
+  <!-- FIXED BACKGROUND LAYERS -->
+  <canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.45;"></canvas>
+  <div class="spotlight" id="spotlight"></div>
+
   <!-- HERO -->
-  <div id="top" style="max-width: 960px; margin: 0 auto;">
+  <div id="top" style="max-width: 960px; margin: 0 auto; position: relative; z-index: 1;">
     <div class="hero">
       <p class="hero-eyebrow">Open to Opportunities — United States</p>
       <h1>Sadhana Sainarayanan</h1>
@@ -623,8 +676,8 @@
         <span id="typewriter"></span><span class="cursor"></span>
       </div>
       <p class="hero-desc">
-        Cloud platform Security Analyst working at the intersection of SAP BTP,
-        agentic AI, and cloud security automation. Currently working on personal projects to build tools that make
+        Cloud Platform Security Analyst working at the intersection of SAP BTP,
+        agentic AI, and cloud security automation. Building tools that make
         AI systems observable and accountable.
       </p>
       <div class="hero-actions">
@@ -639,26 +692,30 @@
   <!-- ABOUT -->
   <section id="about">
     <p class="section-label">Background</p>
-    <h2>Building at the edge of<br> cloud security and AI systems</h2>
+    <h2>Building at the edge of<br>cloud security and AI systems</h2>
     <div class="about-grid">
       <p class="about-text">
         I'm an Analyst at <strong>TCS</strong>, embedded at a large tech client, where I work in
-        <strong> SAP BTP Cloud Platform Foundations and Security</strong>, Python Automation, and Claude SDK based agent development.
-        My dual master's from <strong>Carnegie Mellon University</strong> grounds my work in systems thinking. 
+        <strong>SAP BTP Cloud Platform Foundations and Security</strong>, Python automation, and Claude SDK based agent development.
+        My dual master's from <strong>Carnegie Mellon University</strong> grounds my work in systems thinking.
         I approach cloud security the way an engineer approaches infrastructure: with rigor,
         auditability, and a bias toward automation over process.
         <br><br>
         My personal projects include building a tool stack for <strong>agentic AI accountability and security</strong>
-        that detect behavioral divergence, sign execution logs, and surface
+        that detects behavioral divergence, signs execution logs, and surfaces
         when AI agents act differently when they think no one is watching.
       </p>
       <div class="about-stat">
         <div class="stat-value">DEF<span> </span>CON</div>
-        <div class="stat-label">Cloud Village speaker, August 2026</div>
+        <div class="stat-label">Cloud Village speaker, August 2026 · 75 attendees</div>
       </div>
       <div class="about-stat">
-        <div class="stat-value">4</div>
+        <div class="stat-value" data-target="4" data-suffix="+">4<span>+</span></div>
         <div class="stat-label">Agentic AI tools in active development</div>
+      </div>
+      <div class="about-stat">
+        <div class="stat-value">NeurIPS</div>
+        <div class="stat-label">Ethics track reviewer</div>
       </div>
     </div>
   </section>
@@ -732,8 +789,9 @@
       <div class="skill-card">
         <div class="skill-card-title">Certifications</div>
         <div class="skill-tags">
-          <span class="tag">GCP Professional ML Engineer (Exp Mar 2026)</span>
-          <span class="tag">Azure AI Engineer Associate (Exp Oct 2026)</span>
+          <span class="tag">Databricks GenAI (in progress)</span>
+          <span class="tag">AWS SAA (targeted)</span>
+          <span class="tag">AWS Security Specialty (targeted)</span>
         </div>
       </div>
     </div>
@@ -748,10 +806,10 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <span class="project-badge">Active Build · DEF CON 34 Cloud Village · Aug 7 2026 · Las Vegas</span>
+        <span class="project-badge">Completed · DEF CON 34 Cloud Village · Aug 7 2026 · Las Vegas</span>
         <div class="project-title">Trust Fall: How Agentic AI Inherits Your Cloud's Worst IAM Habits</div>
         <p class="project-desc">
-          Research examining how AI Agents inherit and amplify least-privilege violations already present in cloud IAM configurations. Co-presented with Aravind Pallavoor.
+          Research examining how AI agents inherit and amplify least-privilege violations already present in cloud IAM configurations. Solo talk at DEF CON 34 Cloud Village. 75 attendees. YouTube video forthcoming.
         </p>
         <div class="project-stack">
           <span class="tag">AWS IAM</span>
@@ -762,10 +820,10 @@
       </div>
 
       <div class="project-card">
-        <span class="project-badge">Active Build · AISF Vegas · Aug 6 2026 · Las Vegas</span>
+        <span class="project-badge">Completed · AISF Vegas · Aug 6 2026 · Las Vegas</span>
         <div class="project-title">AI Agent Specification Gaming: How Agents Weaponize Compliance</div>
         <p class="project-desc">
-          Three-layer threat taxonomy for specification gaming where AI agents satisfy the letter of their instructions while violating intent. Includes a spec auditor tool and resolution tooling with live demos using an AWS Emulator. Co-presented with Aravind Pallavoor.
+          Three-layer threat taxonomy for specification gaming where AI agents satisfy the letter of their instructions while violating intent. Includes a spec auditor tool and resolution tooling with live demos using an AWS emulator. Co-presented with Aravind Pallavoor.
         </p>
         <div class="project-stack">
           <span class="tag">AI Control</span>
@@ -792,9 +850,51 @@
 
       <div class="project-card">
         <span class="project-badge">Active Build</span>
+        <div class="project-title">MCPScan — AI CVE Research Agent</div>
+        <p class="project-desc">
+          Static analysis agent that hunts CVEs in MCP servers, LangChain, LlamaIndex, CrewAI, AutoGen, and the Anthropic/OpenAI SDKs. Pulls from NVD, OSV.dev, GHSA, and PyPI Safety DB. Pre-CVE pipeline monitors GitHub commits and PRs for unpatched signals before public disclosure.
+        </p>
+        <div class="project-stack">
+          <span class="tag">LangGraph</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">NVD / OSV</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active Build</span>
+        <div class="project-title">HoneypotAudit / HPEAP</div>
+        <p class="project-desc">
+          Behavioral divergence detection framework that measures whether AI agents act differently when they believe they are unobserved. Cue-free, implicit detection distinct from sandbagging or eval-awareness work.
+        </p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Alignment Research</span>
+        </div>
+        <a class="project-github" href="https://github.com/SadhanaSai/honeypotaudit" target="_blank" rel="noopener">github.com/SadhanaSai/honeypotaudit</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active Build</span>
+        <div class="project-title">AgentLedger</div>
+        <p class="project-desc">
+          Drop-in cryptographically signed execution ledger for agentic AI workflows. Every tool call, decision, and output gets a tamper-evident log entry — auditability without changing the agent's logic.
+        </p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Cryptography</span>
+          <span class="tag">Observability</span>
+        </div>
+        <a class="project-github" href="https://github.com/SadhanaSai/agentledger" target="_blank" rel="noopener">github.com/SadhanaSai/agentledger</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active Build</span>
         <div class="project-title">BehaviorProbe / researchgapfinder</div>
         <p class="project-desc">
-          BehaviorProbe for model drift detection across versions
+          BehaviorProbe for model drift detection across versions. researchgapfinder (PaperDrift) for trajectory analysis of research gaps in the AI safety literature.
         </p>
         <div class="project-stack">
           <span class="tag">Python</span>
@@ -802,6 +902,21 @@
           <span class="tag">LLM Accountability</span>
         </div>
         <a class="project-github" href="https://github.com/SadhanaSai/behaviorprobe" target="_blank" rel="noopener">github.com/SadhanaSai/behaviorprobe</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge">Active Build</span>
+        <div class="project-title">J-Space Fabrication Divergence</div>
+        <p class="project-desc">
+          Interpretability research using Anthropic's Jacobian lens to study what happens inside a model's reasoning substrate when it fabricates confident statistics. Three divergence patterns: J-space signaling uncertainty while CoT outputs confident prose, deep confabulation in both channels, and decoding-level collapse.
+        </p>
+        <div class="project-stack">
+          <span class="tag">TransformerLens</span>
+          <span class="tag">Jacobian Lens</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Llama / Qwen</span>
+        </div>
+        <a class="project-github" href="https://github.com/SadhanaSai/jspace-fabrication" target="_blank" rel="noopener">github.com/SadhanaSai/jspace-fabrication</a>
       </div>
 
     </div>
@@ -852,7 +967,7 @@
         <div>
           <div class="exp-role">Mobility Data Analytics Intern — Dept. of Mobility & Infrastructure</div>
           <ul class="exp-points">
-            <li>Data analysis for Public Transportation and mobility equity</li>
+            <li>Data analysis for public transportation and mobility equity</li>
           </ul>
         </div>
       </div>
@@ -864,7 +979,7 @@
         <div>
           <div class="exp-role">Systems Analysis Group Intern — Transportation Modeling and Data Science</div>
           <ul class="exp-points">
-            <li>Transportation modeling and data science</li>
+            <li>Transportation modeling and data science within the Systems Analysis Group, Raleigh NC</li>
           </ul>
         </div>
       </div>
@@ -880,6 +995,19 @@
           </ul>
         </div>
       </div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">2026</span>
+          <span class="exp-company">NeurIPS</span>
+        </div>
+        <div>
+          <div class="exp-role">Ethics Track Reviewer</div>
+          <ul class="exp-points">
+            <li>Reviewing AI ethics submissions across two tracks, covering alignment, fairness, and societal impact of AI systems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -898,7 +1026,7 @@
       <div class="edu-card">
         <div class="edu-school">Carnegie Mellon University</div>
         <div class="edu-degree">M.S. Engineering & Technology Innovation Management<br>Analytics Concentration</div>
-        <div class="edu-detail"> Pittsburgh, PA · 2021</div>
+        <div class="edu-detail">Pittsburgh, PA · 2021</div>
       </div>
       <div class="edu-card">
         <div class="edu-school">SSN College of Engineering</div>
@@ -922,15 +1050,18 @@
         <a class="contact-link" href="mailto:sadhanasainarayanan@gmail.com">
           <span class="contact-icon">✉</span>
           sadhanasainarayanan@gmail.com
+          <button class="copy-btn" id="copy-email" onclick="copyEmail(event)">copy</button>
         </a>
-        <a class="contact-link" href="https://linkedin.com/in/sadhana-sainarayanan`" target="_blank" rel="noopener">
+        <a class="contact-link" href="https://linkedin.com/in/sadhana-sainarayanan" target="_blank" rel="noopener">
           <span class="contact-icon">in</span>
           linkedin.com/in/sadhana-sainarayanan
         </a>
         <a class="contact-link" href="https://github.com/SadhanaSai" target="_blank" rel="noopener">
-          <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor" d="M12 .297a12 12 0 00-3.797 23.4c.6.111.82-.261.82-.58 0-.287-.011-1.244-.017-2.25-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.76-1.606-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.003 0c2.292-1.552 3.299-1.23 3.299-1.23.654 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.103.823 2.222 0 1.604-.015 2.898-.015 3.293 0 .322.218.697.825.579A12 12 0 0012 .297"/>
-          </svg>
+          <span class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 .297a12 12 0 00-3.797 23.4c.6.111.82-.261.82-.58 0-.287-.011-1.244-.017-2.25-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.76-1.606-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.003 0c2.292-1.552 3.299-1.23 3.299-1.23.654 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.103.823 2.222 0 1.604-.015 2.898-.015 3.293 0 .322.218.697.825.579A12 12 0 0012 .297"/>
+            </svg>
+          </span>
           github.com/SadhanaSai
         </a>
       </div>
@@ -938,11 +1069,56 @@
   </section>
 
   <footer>
-    <p>2026 Sadhana Sainarayanan.</p>
+    <p>© 2026 Sadhana Sainarayanan.</p>
+    <p>Austin, TX — open to relocation</p>
   </footer>
 
   <script>
-    // Typewriter
+    // ── CURSOR SPOTLIGHT ─────────────────────────────────────────
+    const spotlight = document.getElementById('spotlight');
+    document.addEventListener('mousemove', e => {
+      spotlight.style.left = e.clientX + 'px';
+      spotlight.style.top  = e.clientY + 'px';
+    });
+
+    // ── COPY EMAIL ───────────────────────────────────────────────
+    function copyEmail(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      navigator.clipboard.writeText('sadhanasainarayanan@gmail.com').then(() => {
+        const btn = document.getElementById('copy-email');
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // ── STAT COUNTERS ────────────────────────────────────────────
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const isFloat = el.dataset.float === 'true';
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix || '';
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          const val = isFloat ? (target * ease).toFixed(2) : Math.round(target * ease);
+          el.innerHTML = `${prefix}${val}<span>${suffix}</span>`;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        statObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-value[data-target]').forEach(el => statObserver.observe(el));
+
+    // ── TYPEWRITER ───────────────────────────────────────────────
     const lines = [
       'Cloud Security',
       'SAP BTP Platform Engineering',
@@ -950,19 +1126,19 @@
       'AI Agent Accountability',
     ];
     let lineIdx = 0, charIdx = 0, deleting = false;
-    const el = document.getElementById('typewriter');
+    const twEl = document.getElementById('typewriter');
 
     function type() {
       const current = lines[lineIdx];
       if (!deleting) {
-        el.textContent = current.slice(0, ++charIdx);
+        twEl.textContent = current.slice(0, ++charIdx);
         if (charIdx === current.length) {
           deleting = true;
           setTimeout(type, 1800);
           return;
         }
       } else {
-        el.textContent = current.slice(0, --charIdx);
+        twEl.textContent = current.slice(0, --charIdx);
         if (charIdx === 0) {
           deleting = false;
           lineIdx = (lineIdx + 1) % lines.length;
@@ -970,8 +1146,93 @@
       }
       setTimeout(type, deleting ? 42 : 68);
     }
-
     type();
+
+    // ── PARTICLE CANVAS ──────────────────────────────────────────
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let W, H, dots;
+
+    function initCanvas() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      dots = Array.from({ length: 72 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.4 + 0.4,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        a: Math.random() * 0.5 + 0.2
+      }));
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      dots.forEach(d => {
+        d.x += d.vx; d.y += d.vy;
+        if (d.x < 0) d.x = W;
+        if (d.x > W) d.x = 0;
+        if (d.y < 0) d.y = H;
+        if (d.y > H) d.y = 0;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,212,255,${d.a})`;
+        ctx.fill();
+      });
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(0,212,255,${0.09 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+
+    initCanvas();
+    drawParticles();
+    window.addEventListener('resize', initCanvas);
+
+    // ── SCROLL FADE IN ───────────────────────────────────────────
+    const fadeEls = document.querySelectorAll(
+      'section, .project-card, .skill-card, .exp-item, .edu-card, .about-stat, .contact-inner'
+    );
+    fadeEls.forEach(el => el.classList.add('fade-in'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ── NAV ACTIVE ON SCROLL ─────────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => navObserver.observe(s));
   </script>
 
 </body>
